@@ -20,7 +20,7 @@ export default function VariationC() {
                 <SlotImage className="mn-avatar" src={profile.avatar} alt={profile.name} placeholder="foto" />
                 <div>
                   <h1 className="mn-name">
-                    {profile.name}
+                    {profile.displayName}
                     <span className="mn-caret">_</span>
                   </h1>
                   <div className="mn-handle">{profile.handle}</div>
@@ -45,7 +45,7 @@ export default function VariationC() {
             </aside>
 
             <div className="mn-body">
-              <a className="mn-feat" href={course.href}>
+              <a className="mn-feat" href={course.href} target="_blank" rel="noopener noreferrer">
                 <div className="mn-feat-img">
                   <SlotImage src={course.cover} alt={course.title} placeholder="capa do curso" />
                   {course.badge ? (
@@ -74,6 +74,8 @@ export default function VariationC() {
                       key={link.l}
                       className={`mn-link${link.soon ? " is-soon" : ""}`}
                       href={link.soon ? undefined : link.href}
+                      target={link.soon ? undefined : "_blank"}
+                      rel={link.soon ? undefined : "noopener noreferrer"}
                       aria-disabled={link.soon ? "true" : undefined}
                     >
                       <span className="mn-link-n">{String(i + 1).padStart(2, "0")}</span>
